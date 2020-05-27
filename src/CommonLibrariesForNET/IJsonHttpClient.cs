@@ -17,6 +17,7 @@ namespace Salesforce.Common
 
         // POST
         Task<T> HttpPostAsync<T>(object inputObject, string urlSuffix);
+        Task<T> HttpPostAsyncWithHeaders<T>(object inputObject, string urlSuffix, IDictionary<string, string> headers);
         Task<T> HttpPostAsync<T>(object inputObject, Uri uri);
         Task<T> HttpPostRestApiAsync<T>(string apiName, object inputObject);
         Task<T> HttpBinaryDataPostAsync<T>(string urlSuffix, object inputObject, byte[] fileContents, string headerName, string fileName);

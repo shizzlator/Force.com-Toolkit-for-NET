@@ -19,6 +19,7 @@ namespace Salesforce.Force
         Task<T> ExecuteRestApiAsync<T>(string apiName);
         Task<T> ExecuteRestApiAsync<T>(string apiName, object inputObject);
         Task<SuccessResponse> CreateAsync(string objectName, object record);
+        Task<SuccessResponse> CreateAsyncWithHeaders(string objectName, object record, IDictionary<string, string> headers);
         Task<SaveResponse> CreateAsync(string objectName, CreateRequest request);
         Task<SuccessResponse> UpdateAsync(string objectName, string recordId, object record);
         Task<SuccessResponse> UpsertExternalAsync(string objectName, string externalFieldName, string externalId, object record);

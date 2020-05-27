@@ -135,6 +135,14 @@ namespace Salesforce.Force
             return await _jsonHttpClient.HttpPostAsync<SuccessResponse>(record, string.Format("sobjects/{0}", objectName)).ConfigureAwait(false);
         }
 
+        public async Task<SuccessResponse> CreateAsyncWithHeaders(string objectName, object record, IDictionary<string, string> headers)
+        {
+            if (string.IsNullOrEmpty(objectName)) throw new ArgumentNullException("objectName");
+            if (record == null) throw new ArgumentNullException("record");
+
+            return await _jsonHttpClient.HttpPostAsyncWithHeaders<SuccessResponse>(record, string.Format("sobjects/{0}", objectName), headers).ConfigureAwait(false);
+        }
+
         public async Task<SaveResponse> CreateAsync(string objectName, CreateRequest request)
         {
             if (string.IsNullOrEmpty(objectName)) throw new ArgumentNullException("objectName");
